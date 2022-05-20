@@ -1,19 +1,94 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {% block stylesheets %}
+    {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+</head>
+<style>
+    .fa-stack[data-count]:after{
+        position:absolute;
+        right:0%;
+        top:1%;
+        content: attr(data-count);
+        font-size:30%;
+        padding:.6em;
+        border-radius:999px;
+        line-height:.75em;
+        color: white;
+        background:rgba(255,0,0,.85);
+        text-align:center;
+        min-width:2em;
+        font-weight:bold;
+    }
+</style>
+<body>
+{#NAV BAR#}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<div class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    <a href="/homepage" class="navbar-brand">Miško Taškas</a>
+                </div>
+
+                <div class="navbar-collapse collapse" id="mobile_menu">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/homepage">Pagrindinis puslapis</a></li>
+                        <li><a href="/upload_advertisement" class="dropdown-toggle" data-toggle="dropdown"> Įkelti skelbimą <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/advertisement/sell_forest">Parduoti mišką</a></li>
+                                <li><a href="/advertisement/sell_wood">Parduoti medieną</a></li>
+                                <li><a href="/advertisement/forest_care">Miško priežiūra</a></li>
+                                <li><a href="/advertisement/forest_landscaping">Miško apželdinimas</a></li>
+                                <li><a href="/advertisement/forest_logging">Miško kirtimas</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/advertisement/my_advertisement">Esami skelbimai</a></li>
+                        <li><a href="/advertisement/advertisement">Visi skelbimai</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <form action="" class="navbar-form">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                    <a href="/notifications/chat" class="notification">
+                        <i class="fas fa-envelope"></i><span class="counter counter-lg">29</span>&nbsp;&nbsp;in
+                        <span class="badge">3</span>
+                    </a>
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> Profilis</a></li>
+                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Prisijungti / Registruotis <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/login">Prisijungti</a></li>
+                                <li><a href="/register">Registruotis</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{#NAV BAR#}
+{% block body %}
+{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
 </html>
