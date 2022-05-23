@@ -7,12 +7,14 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                            <img src="https://devshift.biz/wp-content/uploads/2017/04/profile-icon-png-898-450x450.png" alt="avatar"
                                  class="rounded-circle img-fluid" style="width: 150px;">
                             <h5 class="my-3">{{ app.user.getUserIdentifier }}</h5>
                             <div class="d-flex justify-content-center mb-2">
-                                <button type="button" class="btn btn-primary">Follow</button>
-                                <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+                                <a href="/notifications/chat" class="notification">
+                                    <i class="fas fa-envelope"></i><span class="counter counter-lg">Pranešimai</span>
+                                </a>
+                                {#  <button type="button" class="btn btn-outline-primary ms-1">Pranešimai</button> #}
                             </div>
                         </div>
                     </div>
@@ -59,7 +61,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4">
+                    <a href="/notifications/chat" class="notification">
+                        <i class="fas fa-envelope"></i><span class="counter counter-lg">Redaguoti</span>
+                    </a>
+                    <a href="/notifications/chat" class="notification">
+                        <i class="fas fa-envelope"></i><span class="counter counter-lg">Ištrinti profilį</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
+    {% include 'footer.html.twig' %}
 {% endblock %}
